@@ -5,13 +5,16 @@ const display = document.getElementsByTagName('th')
 let value ='+'
 console.log(display[0].textContent)
  let x = ''
-    let result
+let result
+let repeat = ''
 buttons.forEach((btn)=>{
     btn.addEventListener('click',()=>{
        
         if(display[0].classList.contains('error')){
             display[0].classList.remove('error')
+            display[0].textContent=''
         }
+    
        switch (btn.textContent) {
          case 'AC':
            display[0].textContent = '0'
@@ -23,36 +26,49 @@ buttons.forEach((btn)=>{
            display[0].textContent += btn.textContent
            break
          case '/':
+           repeat+='/';
            display[0].textContent += btn.textContent
            value = '/'
            break
          case '+':
+           repeat += '+'
            display[0].textContent += btn.textContent
            value = '+'
            break
          case '-':
+           repeat += '-'
            display[0].textContent += btn.textContent
            value = '-'
            break
          case '*':
+           repeat += '*'
            display[0].textContent += btn.textContent
            value = '*'
            break
          case '%':
+           repeat += '%'
            display[0].textContent += btn.textContent
            value = '%'
            break
          case '=':
+            if(repeat.length>1){
+                 error();
+                
+
+            } else{
            calulation(display[0].textContent)
            console.log(display[0].textContent)
+            }
            break
          default:
            if (parseInt(display[0].textContent[0]) === 0) {
              display[0].textContent = ''
            }
            display[0].textContent += btn.textContent
-           break
+           repeat='';
+           break;
        }
+       console.log(repeat)
         // Saving all clicked number
         if (btn.textContent === 'AC' || btn.textContent === 'C'){
            x=''
@@ -105,6 +121,7 @@ function calulation(str2){
         break
       case '/':
         let array4 = str2.split('/')
+        console.log(array4)
         if (array4[0] && array4[1]) {
           calulate(array4[0], array4[1], '/')
 
@@ -155,4 +172,9 @@ function calulate(x1,x2,s){
         result='Error'
     
     }
+}
+
+function error(){
+     display[0].textContent = 'Error'
+     display[0].classList.add('error')
 }
