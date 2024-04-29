@@ -104,13 +104,36 @@ function calulation(str2){
     
     switch (value) {
       case '+':
+
         let array1 = str2.split('+')
-        if (array1[0] && array1[1]) {
-          calulate(array1[0], array1[1], '+')
-          console.log(result)
-          display[0].textContent = result
-        }
-        break
+        console.log(array1)
+        let flag1=false
+        // checking all the elements are number
+        array1.forEach((a)=>{
+          //storing type of each element
+          let type = parseInt(a)
+         //checking if there is NaN value
+            if(isNaN(type)){
+                flag1 =true
+            }
+        })
+         // throwing error if there is NaN value in array, otherwise adding them and displaying result
+          if(flag1){
+            error();
+          } else{
+              display[0].textContent =array1.reduce((a,b)=>{
+                return a+parseInt(b)
+              },0)
+          }
+          break;
+           /* old method
+              // if (array1[0] && array1[1]) {
+              //   calulate(array1[0], array1[1], '+')
+              //   console.log(result)
+              //   display[0].textContent = result
+              // }
+                break;
+            */
       case '-':
         let array2 = str2.split('-')
         if (array2[0] && array2[1]) {
@@ -148,31 +171,31 @@ function calulation(str2){
 
 }
 
-function calulate(x1,x2,s){
-     let n1 = parseInt(x1)
-     let n2 = parseInt(x2)
+// function calulate(x1,x2,s){
+//      let n1 = parseInt(x1)
+//      let n2 = parseInt(x2)
  
-    switch (s) {
-      case '/':
-        result = n1 / n2
-        break
-      case '*':
-        result = n1 * n2
-        break
-      case '%':
-        result = n1 % n2
-        break
-      case '+':
-        result = n1 + n2
-        break
-      case '-':
-        result = n1 - n2
-        break
-      default:
-        result='Error'
+//     switch (s) {
+//       case '/':
+//         result = n1 / n2
+//         break
+//       case '*':
+//         result = n1 * n2
+//         break
+//       case '%':
+//         result = n1 % n2
+//         break
+//       case '+':
+//         result = n1 + n2
+//         break
+//       case '-':
+//         result = n1 - n2
+//         break
+//       default:
+//         result='Error'
     
-    }
-}
+//     }
+// }
 
 function error(){
      display[0].textContent = 'Error'
