@@ -35,6 +35,7 @@ table{
     transform: translate(1px,-30px);
     transform: scale(2);
     box-shadow: var(--shadow2);
+    max-width: 200px;
 
 
 }
