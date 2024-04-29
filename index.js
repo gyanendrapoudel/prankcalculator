@@ -106,7 +106,7 @@ function calulation(str2){
       case '+':
 
         let array1 = str2.split('+')
-        console.log(array1)
+    
         let flag1=false
         // checking all the elements are number
         array1.forEach((a)=>{
@@ -136,12 +136,32 @@ function calulation(str2){
             */
       case '-':
         let array2 = str2.split('-')
-        if (array2[0] && array2[1]) {
-          calulate(array2[0], array2[1], '-')
-          console.log(result)
-          display[0].textContent = result
-        }
-        break
+        let sum2 =0
+        let flag2=false
+        // checking all the elements are number
+        array2.forEach((a)=>{
+          //storing type of each element
+          let type = parseInt(a)
+         //checking if there is NaN value
+            if(isNaN(type)){
+                flag2 =true
+            }
+        })
+         // throwing error if there is NaN value in array, otherwise adding them and displaying result
+          if(flag2){
+            error();
+          } else{
+               // mul by 2 because it subtracted in forEach
+               sum2=parseInt(array2[0]*2)
+               array2.forEach((a)=>{
+                console.log(sum2, parseInt(a))
+                sum2=sum2-parseInt(a)
+              })
+                display[0].textContent=sum2
+          }
+          
+          break;
+
       case '/':
         let array4 = str2.split('/')
         console.log(array4)
