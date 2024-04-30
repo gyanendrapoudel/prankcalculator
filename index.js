@@ -168,32 +168,30 @@ function calulation(str2){
         let array3 = str2.split('/')
         let sum3 =0
         let flag3=false
-        console.log(array3)
-        // checking all the elements are number
-        array3.forEach((a)=>{
-          //storing type of each element
-          let type = parseInt(a)
-         //checking if there is NaN value
-            if(isNaN(type)){
-                flag3 =true
-            }
-        })
-         // throwing error if there is NaN value in array, otherwise adding them and displaying result
-          if(flag3){
-            error();
-          } else{
-               // mul by own value because it is divided itself in forEach 
+         if(array3.length>2){
+          error()
+         }else{
+           // checking all the elements are number
+            array3.forEach((a) => {
+             //storing type of each element
+             let type = parseInt(a)
+             //checking if there is NaN value
+              if (isNaN(type)) {
+                  flag3 = true
+              }
+           })
 
-               sum3=parseInt(array3[0]);
-               sum3 = sum3*sum3;
-               array3.forEach((a,i)=>{
-               
-                console.log(sum3, parseInt(a))
-                sum3=sum3/parseInt(a)
-              })
-                display[0].textContent=sum3
-          }
-          
+           // throwing error if there is NaN value in array, otherwise adding them and displaying result
+           
+           if (flag3) {
+               error()
+           } else {
+             
+              sum3 = array3[0]/array3[1]
+              display[0].textContent = sum3
+           }
+         }
+        
           break;
       case '*':
 
@@ -233,28 +231,30 @@ function calulation(str2){
         let sum5 
         let flag5=false
         console.log(array5)
-        // checking all the elements are number
+        
         if(array5.length>2){
           error()
         }
         else{
-        array5.forEach((a)=>{
-          //storing type of each element
-          let type = parseInt(a)
-         //checking if there is NaN value
-            if(isNaN(type)){
-                flag5 =true
+          // checking all the elements are number
+          array5.forEach((a) => {
+            //storing type of each element
+            let type = parseInt(a)
+            //checking if there is NaN value
+            if (isNaN(type)) {
+              flag5 = true
             }
-        })
-         // throwing error if there is NaN value in array, otherwise adding them and displaying result
-          if(flag5){
-            error();
-          } else{
-               // mul by own value because it is divided itself in forEach 
+          })
+          // throwing error if there is NaN value in array, otherwise adding them and displaying result
+          if (flag5) {
+            error()
+          } else {
+            // mul by own value because it is divided itself in forEach
 
-               sum5 = array5[0]%array5[1]
-                display[0].textContent=sum5
-          }}
+            sum5 = array5[0] % array5[1]
+            display[0].textContent = sum5
+          }
+        }
           
           break;
     }
