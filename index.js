@@ -196,51 +196,72 @@ function calulation(str2){
           
           break;
       case '*':
-        let array5 = str2.split('*')
-        if (array5[0] && array5[1]) {
-          calulate(array5[0], array5[1], '*')
-          display[0].textContent = result
-        }
-        break
-      case '%':
-        let array6 = str2.split('%')
-        if (array6[0] && array6[1]) {
-          calulate(array6[0], array6[1], '%')
-          display[0].textContent = result
-        }
-        break
-    }
-    let array =str2.split('')
-    console.log( array.includes('+'))
 
+        let array4 = str2.split('*')
+        let sum4 =1
+        let flag4=false
+        console.log(array4)
+        // checking all the elements are number
+        array4.forEach((a)=>{
+          //storing type of each element
+          let type = parseInt(a)
+         //checking if there is NaN value
+            if(isNaN(type)){
+                flag4 =true
+            }
+        })
+         // throwing error if there is NaN value in array, otherwise adding them and displaying result
+          if(flag4){
+            error();
+          } else{
+               // mul by own value because it is divided itself in forEach 
+
+               
+               
+               array4.forEach((a)=>{
+               
+                console.log(sum4, parseInt(a))
+                sum4=sum4*parseInt(a)
+              })
+                display[0].textContent=sum4
+          }
+          
+          break;
+      case '%':
+        
+        let array5 = str2.split('%')
+        let sum5 
+        let flag5=false
+        console.log(array5)
+        // checking all the elements are number
+        if(array5.length>2){
+          error()
+        }
+        else{
+        array5.forEach((a)=>{
+          //storing type of each element
+          let type = parseInt(a)
+         //checking if there is NaN value
+            if(isNaN(type)){
+                flag5 =true
+            }
+        })
+         // throwing error if there is NaN value in array, otherwise adding them and displaying result
+          if(flag5){
+            error();
+          } else{
+               // mul by own value because it is divided itself in forEach 
+
+               sum5 = array5[0]%array5[1]
+                display[0].textContent=sum5
+          }}
+          
+          break;
+    }
 }
 
-// function calulate(x1,x2,s){
-//      let n1 = parseInt(x1)
-//      let n2 = parseInt(x2)
- 
-//     switch (s) {
-//       case '/':
-//         result = n1 / n2
-//         break
-//       case '*':
-//         result = n1 * n2
-//         break
-//       case '%':
-//         result = n1 % n2
-//         break
-//       case '+':
-//         result = n1 + n2
-//         break
-//       case '-':
-//         result = n1 - n2
-//         break
-//       default:
-//         result='Error'
-    
-//     }
-// }
 
+// throwing error function
 function error(){
      display[0].textContent = 'Error'
      display[0].classList.add('error')
