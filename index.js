@@ -152,7 +152,8 @@ function calulation(str2){
             error();
           } else{
                // mul by 2 because it subtracted in forEach
-               sum2=parseInt(array2[0]*2)
+
+               sum2=parseInt(array2[0])*2
                array2.forEach((a)=>{
                 console.log(sum2, parseInt(a))
                 sum2=sum2-parseInt(a)
@@ -163,14 +164,37 @@ function calulation(str2){
           break;
 
       case '/':
-        let array4 = str2.split('/')
-        console.log(array4)
-        if (array4[0] && array4[1]) {
-          calulate(array4[0], array4[1], '/')
 
-          display[0].textContent = result
-        }
-        break
+        let array3 = str2.split('/')
+        let sum3 =0
+        let flag3=false
+        console.log(array3)
+        // checking all the elements are number
+        array3.forEach((a)=>{
+          //storing type of each element
+          let type = parseInt(a)
+         //checking if there is NaN value
+            if(isNaN(type)){
+                flag3 =true
+            }
+        })
+         // throwing error if there is NaN value in array, otherwise adding them and displaying result
+          if(flag3){
+            error();
+          } else{
+               // mul by own value because it is divided itself in forEach 
+
+               sum3=parseInt(array3[0]);
+               sum3 = sum3*sum3;
+               array3.forEach((a,i)=>{
+               
+                console.log(sum3, parseInt(a))
+                sum3=sum3/parseInt(a)
+              })
+                display[0].textContent=sum3
+          }
+          
+          break;
       case '*':
         let array5 = str2.split('*')
         if (array5[0] && array5[1]) {
