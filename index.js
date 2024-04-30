@@ -3,7 +3,9 @@ const buttons = [...document.getElementsByTagName('td')]
 console.log(buttons)
 const display = document.getElementsByTagName('th')
 let value ='+'
-console.log(display[0].textContent)
+console.log(display[0].textContent);
+// initializing error music
+let music = new Audio('./error.mp3')
  let x = ''
 let result
 let repeat = ''
@@ -53,8 +55,6 @@ buttons.forEach((btn)=>{
          case '=':
             if(repeat.length>1){
                  error();
-                
-
             } else{
            calulation(display[0].textContent)
            console.log(display[0].textContent)
@@ -265,4 +265,6 @@ function calulation(str2){
 function error(){
      display[0].textContent = 'Error'
      display[0].classList.add('error')
+     music.play();
+     
 }
