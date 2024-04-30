@@ -84,9 +84,7 @@ buttons.forEach((btn)=>{
           
        } else if(x.length>25){
         //   throw error if maxlength exceed 25 
-            display[0].textContent='Error'
-            display[0].classList.add('error')
-            console.log(display[0].classList)
+           error()
         }
     })
 })
