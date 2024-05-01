@@ -79,12 +79,12 @@ buttons.forEach((btn)=>{
         //   x += btn.textContent
       
         //  replacing number when it reach max length 20 to 25 
-       if(x.length>20 && x.length<25){
+       if(x.length>20 && x.length<22){
          sliceString(display[0].textContent);
           
-       } else if(x.length>25){
+       } else if(x.length>22){
         //   throw error if maxlength exceed 25 
-           error()
+           error("Max Press AC OR C")
         }
     })
 })
@@ -260,8 +260,8 @@ function calulation(str2){
 
 
 // throwing error function
-function error(){
-     display[0].textContent = 'Error'
+function error(str='Error'){
+     display[0].textContent = str
      display[0].classList.add('error')
      music.play();
      
