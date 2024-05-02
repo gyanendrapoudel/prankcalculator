@@ -25,6 +25,7 @@ body{
     text-align: center;
     height: 100vh;
     transform: perspective(60rem) rotateX(15deg);
+    animation: moving  0.5s 0.1s linear;
 
 }
 table{
@@ -68,4 +69,19 @@ tbody td:hover{
 .error{
 background-color: red;
 color: white;
+}
+
+@keyframes moving {
+
+    0%{
+        transform: perspective(10rem) rotateX(15deg);
+    }
+    50%{
+        transform: perspective(30rem) rotateX(15deg);
+
+    }
+    100%{
+        transform: perspective(60rem) rotateX(15deg);
+
+    }
 }
