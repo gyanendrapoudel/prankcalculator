@@ -24,6 +24,8 @@ body{
 .wrapper{
     text-align: center;
     height: 100vh;
+    transform: perspective(60rem) rotateX(15deg);
+
 }
 table{
     /* border: 2px solid red; */
@@ -32,11 +34,10 @@ table{
     border-spacing: 8px 10px;
     border-radius: 5px;
     /* transform: scale(1.5); */
-    transform: translate(1px,-30px);
     transform: scale(2);
     box-shadow: var(--shadow2);
     max-width: 200px;
-
+    
 
 }
 
