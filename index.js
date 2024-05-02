@@ -9,9 +9,17 @@ let music = new Audio('./error.mp3')
  let x = ''
 let result
 let repeat = ''
+// adding mousedown event
+buttons.forEach((btn)=>{
+  btn.addEventListener('mousedown', ()=>{
+    btn.style.transform='scale(0.9)'
+    
+  })
+})
+
 buttons.forEach((btn)=>{
     btn.addEventListener('click',()=>{
-       
+       btn.style.transform = 'scale(1.08)'
         if(display[0].classList.contains('error')){
             display[0].classList.remove('error')
             display[0].textContent=''
